@@ -1,0 +1,70 @@
+= Metanorma Linux Setup
+
+== Purpose
+
+This repository provides installation of the
+https://github.com/riboseinc/metanorma[Metanorma] publication toolchain
+on Linux.
+
+
+== Requirements
+
+* https://www.ubuntu.com[Ubuntu (18.10 down to 16.04)]
+* https://www.centos.org/[CentOS 7.x]
+
+Older versions may work but are not tested.
+
+== Install on Ubuntu
+
+[source,sh]
+----
+# Set up prerequisites
+apt-get update
+apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev default-jre sassc
+
+# for puppeteer
+apt-get install -y npm
+apt-get install -y gconf-service gconf-service-backend gconf2-common libdbus-glib-1-2 libgconf-2-4 libgconf2-4 libxss1
+npm i puppeteer
+
+# for plantuml
+apt-get install -y graphviz
+mkdir -p /opt/plantuml && \
+  curl -o /opt/plantuml/plantuml.jar \
+  http://sourceforge.net/projects/plantuml/files/plantuml.1.2018.10.jar/download
+printf '#!/bin/sh\nexec java -jar /opt/plantuml/plantuml.jar "$@"' > /usr/bin/plantuml.sh
+chmod +x /usr/bin/plantuml.sh
+
+# Ruby sassc gem depends on rake gem
+gem install rake
+gem install bundler
+gem install nokogiri -v '1.8.4'
+gem install metanorma
+gem install metanorma-cli
+----
+
+NOTE: You may need to run these via `sudo`.
+
+
+== Install on CentOS
+
+TBD.
+
+
+== What it sets up
+
+//* https://github.com/postmodern/chruby[chruby] for managing [Ruby] versions
+* http://bundler.io[bundler] for managing [Ruby] gems
+* https://java.com[Java] which is a dependency for some of the Metanorma gems
+//* https://github.com/creationix/nvm[nvm] for managing http://nodejs.org[Node.js] versions (includes latest Node.js and https://www.npmjs.org[NPM], for running apps and installing JavaScript packages)
+* http://nodejs.org[Node.js] (includes latest Node.js and https://www.npmjs.org[NPM], for running apps and installing JavaScript packages)
+* https://github.com/GoogleChrome/puppeteer[puppeteer] for running Headless Chrome via Node.js (used to generate PDFs from HTML)
+* http://plantuml.com/[PlantUML] for creating UML diagrams via plain-text
+
+
+== Debugging
+
+If you run into any problems, please copy and paste the entire log into a
+https://github.com/riboseinc/metanorma-macos-setup/issues/new[new GitHub Issue]
+for us.
+
