@@ -7,9 +7,9 @@ if [ -f "/etc/profile.d/rvm.sh" ]; then
 else
   echo "[rvm] Installing RVM..."
   curl -sSL https://get.rvm.io | bash
+  source /etc/profile.d/rvm.sh
 fi
 
-source /etc/profile.d/rvm.sh
 rvm use ${RUBY_VER} --install --binary --fuzzy
 
 # Ruby sassc gem depends on rake gem
