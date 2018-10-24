@@ -54,6 +54,6 @@ else
   mkdir -p /opt/plantuml && \
     curl -o /opt/plantuml/plantuml.jar \
     ${PLANTUML_URL}
-  printf '#!/bin/sh\nexec java -jar /opt/plantuml/plantuml.jar "$@"' > /usr/bin/plantuml.sh
-  chmod +x /usr/bin/plantuml.sh
+  printf '#!/bin/sh\nexec java -jar /opt/plantuml/plantuml.jar "$@"' > /usr/bin/plantuml
+  chmod +x /usr/bin/plantuml
 fi
