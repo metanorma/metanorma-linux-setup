@@ -6,9 +6,14 @@ rvm:
 cache: bundler
 before_install:
   - travis_retry sudo apt-get update
-  - travis_retry sudo ./ubuntu.sh
+  # This is a workaround for npm install
+  # https://github.com/npm/npm/issues/20203
+  - travis_retry sudo apt-get install -y npm
+  - sudo npm config set strict-ssl false
 env:
   global:
     - JAVA_OPTS="java.awt.headless=true"
+    - RUBY_VER="2.5.1"
 script:
+  - sudo ./ubuntu.sh
   - plantuml -testdot

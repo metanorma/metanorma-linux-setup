@@ -18,9 +18,4 @@ mkdir -p /opt/plantuml && \
 printf '#!/bin/sh\nexec java -jar /opt/plantuml/plantuml.jar "$@"' > /usr/bin/plantuml.sh
 chmod +x /usr/bin/plantuml.sh
 
-# Ruby sassc gem depends on rake gem
-gem install rake
-gem install bundler
-gem install nokogiri -v '1.8.4'
-gem install metanorma
-gem install metanorma-cli
+$(pwd)/install-gems.sh
