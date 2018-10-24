@@ -16,5 +16,5 @@ env:
     - RUBY_VER="2.5.1"
 script:
   - sudo ./ubuntu.sh
-  - install-gems.sh
+  - ./install-gems.sh
   - plantuml -testdot
