@@ -8,7 +8,7 @@ apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev d
 # for puppeteer
 apt-get install -y npm
 apt-get install -y gconf-service gconf-service-backend gconf2-common libdbus-glib-1-2 libgconf-2-4 libgconf2-4 libxss1
-npm i puppeteer
+npm i -g puppeteer
 
 # for plantuml
 apt-get install -y graphviz
