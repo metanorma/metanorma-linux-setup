@@ -53,7 +53,7 @@ else
   apt-get install -y graphviz
   mkdir -p /opt/plantuml && \
     curl -o /opt/plantuml/plantuml.jar \
-    ${PLANTUML_URL}
+    -L ${PLANTUML_URL}
   printf '#!/bin/sh\nexec java -jar /opt/plantuml/plantuml.jar "$@"' > /usr/bin/plantuml
   chmod +x /usr/bin/plantuml
 fi
