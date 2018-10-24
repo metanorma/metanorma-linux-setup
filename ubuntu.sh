@@ -17,5 +17,3 @@ mkdir -p /opt/plantuml && \
   ${PLANTUML_URL}
 printf '#!/bin/sh\nexec java -jar /opt/plantuml/plantuml.jar "$@"' > /usr/bin/plantuml.sh
 chmod +x /usr/bin/plantuml.sh
-
-$(pwd)/install-gems.sh
