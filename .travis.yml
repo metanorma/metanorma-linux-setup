@@ -9,7 +9,7 @@ before_install:
   - nvm install node
   # This is a workaround for npm install
   # https://github.com/npm/npm/issues/20203
-  - sudo npm config set strict-ssl false
+  - npm config set strict-ssl false
 env:
   global:
     - JAVA_OPTS="java.awt.headless=true"
