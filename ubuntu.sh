@@ -3,7 +3,6 @@
 PLANTUML_URL="${PLANTUML_URL:-http://sourceforge.net/projects/plantuml/files/plantuml.jar/download}"
 
 # Set up prerequisites
-apt-get update
 apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev default-jre sassc
 
 # for puppeteer
