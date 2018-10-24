@@ -6,9 +6,9 @@ rvm:
 cache: bundler
 before_install:
   - travis_retry sudo apt-get update
+  - nvm install node
   # This is a workaround for npm install
   # https://github.com/npm/npm/issues/20203
-  - travis_retry sudo apt-get install -y npm
   - sudo npm config set strict-ssl false
 env:
   global:
@@ -18,3 +18,5 @@ script:
   - sudo ./ubuntu.sh
   - ./install-gems.sh
   - plantuml -testdot
+  - export NODE_PATH=$(npm root -g)
+  # test metanorma output and
