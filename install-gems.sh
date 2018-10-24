@@ -7,6 +7,10 @@ if [ -f "/etc/profile.d/rvm.sh" ]; then
 else
   echo "[rvm] Installing RVM..."
   curl -sSL https://get.rvm.io | bash
+fi
+
+# This is if RVM got installed somewhere else
+if [ -f "/etc/profile.d/rvm.sh" ]; then
   source /etc/profile.d/rvm.sh
 fi
 
