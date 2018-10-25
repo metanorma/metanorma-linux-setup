@@ -12,7 +12,7 @@ on Linux.
 
 == Requirements
 
-* https://www.ubuntu.com[Ubuntu (18.10 down to 16.04)]
+* https://www.ubuntu.com[Ubuntu (18.10 down to 12.04)]
 * https://www.centos.org/[CentOS 7.x]
 
 Older versions may work but are not tested.
@@ -21,37 +21,27 @@ Older versions may work but are not tested.
 
 [source,sh]
 ----
-# Set up prerequisites
-apt-get update
-apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev default-jre sassc
-
-# for puppeteer
-apt-get install -y npm
-apt-get install -y gconf-service gconf-service-backend gconf2-common libdbus-glib-1-2 libgconf-2-4 libgconf2-4 libxss1
-npm i puppeteer
-
-# for plantuml
-apt-get install -y graphviz
-mkdir -p /opt/plantuml && \
-  curl -o /opt/plantuml/plantuml.jar \
-  http://sourceforge.net/projects/plantuml/files/plantuml.1.2018.10.jar/download
-printf '#!/bin/sh\nexec java -jar /opt/plantuml/plantuml.jar "$@"' > /usr/bin/plantuml.sh
-chmod +x /usr/bin/plantuml.sh
-
-# Ruby sassc gem depends on rake gem
-gem install rake
-gem install bundler
-gem install nokogiri -v '1.8.4'
-gem install metanorma
-gem install metanorma-cli
+# Prerequisites: "curl"
+# apt-get update && apt-get install -y curl
+sudo bash -c "curl -L https://raw.githubusercontent.com/riboseinc/metanorma-linux-setup/master/ubuntu.sh | bash"
+curl -L https://raw.githubusercontent.com/riboseinc/metanorma-linux-setup/master/install-gems.sh | bash
 ----
 
-NOTE: You may need to run these via `sudo`.
+NOTE: The first command has to be run via `sudo`.
 
 
 == Install on CentOS
 
-TBD.
+
+[source,sh]
+----
+# Prerequisites: "curl"
+# yum install -y curl
+sudo bash -c "curl -L https://raw.githubusercontent.com/riboseinc/metanorma-linux-setup/master/centos.sh | bash"
+curl -L https://raw.githubusercontent.com/riboseinc/metanorma-linux-setup/master/install-gems.sh | bash
+----
+
+NOTE: The first command has to be run via `sudo`.
 
 
 == What it sets up

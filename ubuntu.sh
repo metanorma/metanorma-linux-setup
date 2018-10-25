@@ -1,12 +1,10 @@
 #!/bin/bash -e
 
-PLANTUML_URL="${PLANTUML_URL:-http://sourceforge.net/projects/plantuml/files/plantuml.jar/download}"
-
 # Set up prerequisites
-apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev default-jre
+apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev
 
 # Install libsass
-if [ -f "/usr/local/lib/libsass.a" ]; then
+if [ -f "/usr/local/lib/libsass.a" ] || [ -f "/usr/lib/libsass.a" ]; then
   echo '[libsass] libsass already installed.'
 else
   # If no sassc package, manually install
@@ -45,15 +43,4 @@ else
 fi
 export NODE_PATH=$(npm root -g)
 
-# Install PlantUML
-if [ -f "/opt/plantuml/plantuml.jar" ]; then
-  echo '[plantuml] PlantUML already installed.'
-else
-  echo '[plantuml] Installing PlantUML...'
-  apt-get install -y graphviz
-  mkdir -p /opt/plantuml && \
-    curl -o /opt/plantuml/plantuml.jar \
-    -L ${PLANTUML_URL}
-  printf '#!/bin/sh\nexec java -jar /opt/plantuml/plantuml.jar "$@"' > /usr/bin/plantuml
-  chmod +x /usr/bin/plantuml
-fi
+curl -L "https://raw.githubusercontent.com/riboseinc/plantuml-install/master/ubuntu.sh" | bash
