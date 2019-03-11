@@ -31,4 +31,4 @@ else
 fi
 export NODE_PATH=$(npm root -g)
 
-curl -L "https://raw.githubusercontent.com/riboseinc/plantuml-install/master/centos.sh" | bash
+curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/centos.sh" | bash

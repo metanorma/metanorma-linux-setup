@@ -1,12 +1,12 @@
 = Metanorma Linux Setup
 
-image:https://img.shields.io/travis/riboseinc/metanorma-linux-setup/master.svg["Build Status", link="https://travis-ci.com/riboseinc/metanorma-linux-setup"]
-image:https://codeclimate.com/github/riboseinc/metanorma-linux-setup/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/riboseinc/metanorma-linux-setup"]
+image:https://img.shields.io/travis/metanorma/metanorma-linux-setup/master.svg["Build Status", link="https://travis-ci.com/metanorma/metanorma-linux-setup"]
+image:https://codeclimate.com/github/metanorma/metanorma-linux-setup/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/metanorma/metanorma-linux-setup"]
 
 == Purpose
 
 This repository provides installation of the
-https://github.com/riboseinc/metanorma[Metanorma] publication toolchain
+https://github.com/metanorma/metanorma[Metanorma] publication toolchain
 on Linux.
 
 
@@ -23,8 +23,8 @@ Older versions may work but are not tested.
 ----
 # Prerequisites: "curl"
 # apt-get update && apt-get install -y curl
-sudo bash -c "curl -L https://raw.githubusercontent.com/riboseinc/metanorma-linux-setup/master/ubuntu.sh | bash"
-curl -L https://raw.githubusercontent.com/riboseinc/metanorma-linux-setup/master/install-gems.sh | bash
+sudo bash -c "curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | bash"
+curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/install-gems.sh | bash
 ----
 
 NOTE: The first command has to be run via `sudo`.
@@ -37,8 +37,8 @@ NOTE: The first command has to be run via `sudo`.
 ----
 # Prerequisites: "curl"
 # yum install -y curl
-sudo bash -c "curl -L https://raw.githubusercontent.com/riboseinc/metanorma-linux-setup/master/centos.sh | bash"
-curl -L https://raw.githubusercontent.com/riboseinc/metanorma-linux-setup/master/install-gems.sh | bash
+sudo bash -c "curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/centos.sh | bash"
+curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/install-gems.sh | bash
 ----
 
 NOTE: The first command has to be run via `sudo`.
@@ -58,6 +58,6 @@ NOTE: The first command has to be run via `sudo`.
 == Debugging
 
 If you run into any problems, please copy and paste the entire log into a
-https://github.com/riboseinc/metanorma-macos-setup/issues/new[new GitHub Issue]
+https://github.com/metanorma/metanorma-macos-setup/issues/new[new GitHub Issue]
 for us.
 
