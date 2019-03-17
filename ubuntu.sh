@@ -35,4 +35,4 @@ nvm install node
 curl -L "https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu-install-puppeteer.sh" | bash
 export NODE_PATH=$(npm root -g)
 
-curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/ubuntu.sh" | bash
+curl -L "https://raw.githubusercontent.com/riboseinc/plantuml-install/master/ubuntu.sh" | bash
