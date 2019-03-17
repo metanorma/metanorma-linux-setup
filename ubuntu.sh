@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Set up prerequisites
-apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev latexml
+apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev
 
 # Install libsass
 if [ -f "/usr/local/lib/libsass.a" ] || [ -f "/usr/lib/libsass.a" ]; then
@@ -36,3 +36,7 @@ curl -L "https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/maste
 export NODE_PATH=$(npm root -g)
 
 curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/ubuntu.sh" | bash
+
+# Install latexml
+curl -L http://cpanmin.us | perl - App::cpanminus
+cpanm LaTeXML@0.8.2
