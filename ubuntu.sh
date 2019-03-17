@@ -32,15 +32,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install node
 
 # Install puppeteer
-apt-get install -y gconf-service gconf-service-backend gconf2-common libdbus-glib-1-2
-apt-get install -y libpangocairo-1.0-0 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 libcups2 libxss1 libxrandr2 libgconf2-4 libasound2 libatk1.0-0 libgtk-3-0
-
-if npm list -g --depth 0 | \grep [p]uppeteer > /dev/null 2>&1; then
-  echo '[node: puppeteer] Puppeteer already installed.'
-else
-  echo '[node: puppeteer] Installing puppeteer...'
-  npm install -g --save --save-exact puppeteer --unsafe-perm=true
-fi
+curl -L "https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu-install-puppeteer.sh" | bash
 export NODE_PATH=$(npm root -g)
 
 curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/ubuntu.sh" | bash

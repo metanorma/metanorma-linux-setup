@@ -14,5 +14,3 @@ echo '[node: puppeteer] Installing puppeteer...'
 npm install -g --save --save-exact puppeteer --unsafe-perm=true
 
 echo '[node: puppeteer] Installation complete...'
-
-#export NODE_PATH=$(npm root -g)
