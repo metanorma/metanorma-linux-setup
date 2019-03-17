@@ -19,4 +19,5 @@ script:
   - ./install-gems.sh
   - plantuml -testdot
   - export NODE_PATH=$(npm root -g)
+  - which latexml
   # test metanorma output and

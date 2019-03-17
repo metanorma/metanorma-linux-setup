@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Set up prerequisites
-apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev
+apt-get install -y curl git make ruby-bundler ruby-dev libxml2-dev libxslt-dev latexml
 
 # Install libsass
 if [ -f "/usr/local/lib/libsass.a" ] || [ -f "/usr/lib/libsass.a" ]; then
