@@ -1,11 +1,18 @@
-dist: trusty
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+    - os: linux
+      dist: xenial
 sudo: required
 language: ruby
 rvm:
-  - 2.5.1
+  - 2.6.3
 cache: bundler
+addons:
+  apt:
+    update: true
 before_install:
-  - travis_retry sudo apt-get update
   - nvm install node
   # This is a workaround for npm install
   # https://github.com/npm/npm/issues/20203
@@ -13,7 +20,7 @@ before_install:
 env:
   global:
     - JAVA_OPTS="java.awt.headless=true"
-    - RUBY_VER="2.5.1"
+    - RUBY_VER="2.6.3"
 script:
   - sudo ./ubuntu.sh
   - ./install-gems.sh
