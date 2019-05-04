@@ -1,6 +1,6 @@
 = Metanorma Linux Setup
 
-image:https://img.shields.io/travis/metanorma/metanorma-linux-setup/master.svg["Build Status", link="https://travis-ci.com/metanorma/metanorma-linux-setup"]
+image:https://api.travis-ci.com/metanorma/metanorma-linux-setup.svg?branch=master["Build Status", link="https://travis-ci.com/metanorma/metanorma-linux-setup"]
 image:https://codeclimate.com/github/metanorma/metanorma-linux-setup/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/metanorma/metanorma-linux-setup"]
 
 == Purpose
