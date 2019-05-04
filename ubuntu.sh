@@ -10,7 +10,7 @@ else
   # If no sassc package, manually install
   # TODO: This install command is not idempotent
   echo '[libsass] Installing libsass...'
-  if [ "$(apt-cache search sassc | wc -l)" -eq "0" ]; then
+  if [ "$(apt-cache search --names-only '^sassc$' | wc -l)" -eq "0" ]; then
     echo '[libsass] Packaged sassc not available. Compiling libsass...'
     curl \   https://gist.githubusercontent.com/edouard-lopez/503d40a5c1a49cf8ae87/raw/6ee53f102b4ed97e78c356c471ccf82197a89578/libsass-install.bash \
       | bash
