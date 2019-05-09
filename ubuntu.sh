@@ -31,6 +31,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install node
 nvm alias mn-node node
+nvm use mn-node 
 
 # Install puppeteer
 curl -L "https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu-install-puppeteer.sh" | bash
@@ -40,5 +41,8 @@ curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/ubu
 
 # Install latexml
 curl -L http://cpanmin.us | perl - App::cpanminus
-cpanm --notest LWP
-cpanm LaTeXML@0.8.3
+if [ -z "$METANORMA_DEBUG" ]; then
+  cpanm LaTeXML@0.8.3
+else
+  cpanm --notest LaTeXML@0.8.3
+fi
