@@ -26,5 +26,5 @@ script:
   - ./install-gems.sh
   - plantuml -testdot
   - export NODE_PATH=$(npm root -g)
-  - which latexml
+  - which latexml xml2rfc idnits
   # test metanorma output and
