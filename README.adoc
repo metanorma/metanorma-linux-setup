@@ -57,7 +57,10 @@ NOTE: The first command has to be run via `sudo`.
 
 == Debugging
 
+`METANORMA_DEBUG` environment variable was introduced which will:
+* Enable more verbose logging
+* Enable tests on dependent components (like `latexml`)
+
 If you run into any problems, please copy and paste the entire log into a
 https://github.com/metanorma/metanorma-macos-setup/issues/new[new GitHub Issue]
 for us.
-
