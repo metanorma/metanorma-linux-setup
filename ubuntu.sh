@@ -13,7 +13,7 @@ else
   if [ "$(apt-cache search --names-only '^libsass-dev$' | wc -l)" -eq "0" ]; then
     if [ "$(apt-cache search --names-only '^sassc$' | wc -l)" -eq "0" ]; then
       echo '[libsass] Packaged sassc not available. Compiling libsass...'
-      curl \   https://gist.githubusercontent.com/edouard-lopez/503d40a5c1a49cf8ae87/raw/6ee53f102b4ed97e78c356c471ccf82197a89578/libsass-install.bash \
+      curl https://gist.githubusercontent.com/edouard-lopez/503d40a5c1a49cf8ae87/raw/6ee53f102b4ed97e78c356c471ccf82197a89578/libsass-install.bash \
         | bash
     else
       echo '[libsass] Installing package sassc...'
@@ -45,9 +45,23 @@ export NODE_PATH=$(npm root -g)
 curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/ubuntu.sh" | bash
 
 # Install latexml
-curl -L http://cpanmin.us | perl - App::cpanminus
+command -v cpanm >/dev/null 2>&1 || {
+  curl -L http://cpanmin.us | perl - App::cpanminus
+}
 if [ -z "$METANORMA_DEBUG" ]; then
   cpanm LaTeXML@0.8.3
 else
   cpanm --notest LaTeXML@0.8.3
 fi
+
+# Install idnits & xml2rfc
+command -v pip >/dev/null 2>&1 || {
+  apt-get install -y python-pip
+}
+pip install --upgrade pip 
+pip install idnits xml2rfc --ignore-installed six chardet
+
+export IDNITS_URL=https://tools.ietf.org/tools/idnits/
+export IDNITS_VER=$(curl -Ls $IDNITS_URL | grep -e 'tgz' | sed -e 's/.*\(idnits-.*\).tgz.*/\1/') ; echo ${IDNITS_VER}
+curl -SL ${IDNITS_URL}${IDNITS_VER} | tar xzv
+export PATH=$(pwd)/${IDNITS_VER}:${PATH}
