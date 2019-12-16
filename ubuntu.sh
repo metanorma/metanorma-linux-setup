@@ -54,9 +54,6 @@ else
   cpanm --notest LaTeXML@0.8.4
 fi
 
-# install libreoffice
-apt-get -y --no-install-recommends install libreoffice
-
 # Install idnits & xml2rfc
 command -v pip >/dev/null 2>&1 || {
   apt-get install -y python-pip
