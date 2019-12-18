@@ -58,7 +58,7 @@ fi
 command -v pip >/dev/null 2>&1 || {
   apt-get install -y python-pip
 }
-pip install --upgrade pip 
+pip install --upgrade pip
 pip install idnits xml2rfc --ignore-installed six chardet
 
 export IDNITS_URL=https://tools.ietf.org/tools/idnits/
