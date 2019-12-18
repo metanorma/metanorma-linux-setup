@@ -1,0 +1,35 @@
+name: build
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.6'
+    - name: Prerequisites
+      run: |
+        apt-get update
+        apt-get install -y curl
+    - name: Run install script
+      env:
+        JAVA_OPTS: java.awt.headless=true
+      run: |
+        sudo ./ubuntu.sh
+        ./install-gems.sh
+        ./ubuntu-install-puppeteer.sh
+        plantuml -testdot
+        export NODE_PATH=$(npm root -g)
+        which latexml xml2rfc idnits
