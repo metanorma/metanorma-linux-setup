@@ -1,7 +1,8 @@
 = Metanorma Linux Setup
 
-image:https://api.travis-ci.com/metanorma/metanorma-linux-setup.svg?branch=master["Build Status", link="https://travis-ci.com/metanorma/metanorma-linux-setup"]
-image:https://codeclimate.com/github/metanorma/metanorma-linux-setup/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/metanorma/metanorma-linux-setup"]
+image:https://github.com/metanorma/metanorma-docker/workflows/build/badge.svg["Build Status", link="https://github.com/metanorma/metanorma-docker/actions?workflow=build"]
+image:https://img.shields.io/github/issues-pr-raw/metanorma/metanorma-docker.svg["Pull Requests", link="https://github.com/metanorma/metanorma-docker/pulls"]
+image:https://img.shields.io/github/commits-since/metanorma/metanorma-docker/latest.svg["Commits since latest",link="https://github.com/metanorma/metanorma-docker/releases"]
 
 == Purpose
 
