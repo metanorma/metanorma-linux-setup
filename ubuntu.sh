@@ -49,9 +49,9 @@ command -v cpanm >/dev/null 2>&1 || {
   curl -L http://cpanmin.us | perl - App::cpanminus
 }
 if [ -z "$METANORMA_DEBUG" ]; then
-  cpanm LaTeXML@0.8.4
+  cpanm git://github.com/brucemiller/LaTeXML.git@9a0e7dc5
 else
-  cpanm --notest LaTeXML@0.8.4
+  cpanm --notest git://github.com/brucemiller/LaTeXML.git@9a0e7dc5
 fi
 
 # Install idnits & xml2rfc
