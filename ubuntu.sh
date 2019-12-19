@@ -45,14 +45,7 @@ export NODE_PATH=$(npm root -g)
 curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/ubuntu.sh" | bash
 
 # Install latexml
-command -v cpanm >/dev/null 2>&1 || {
-  curl -L http://cpanmin.us | perl - App::cpanminus
-}
-if [ -z "$METANORMA_DEBUG" ]; then
-  cpanm git://github.com/brucemiller/LaTeXML.git@9a0e7dc5
-else
-  cpanm --notest git://github.com/brucemiller/LaTeXML.git@9a0e7dc5
-fi
+snap install latexml --edge
 
 # Install idnits & xml2rfc
 command -v pip >/dev/null 2>&1 || {
