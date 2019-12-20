@@ -25,7 +25,7 @@ jobs:
       env:
         JAVA_OPTS: java.awt.headless=true
       run: |
-        sudo ./ubuntu.sh
+        sudo -H ./ubuntu.sh
         ./install-gems.sh
         ./ubuntu-install-puppeteer.sh
         plantuml -testdot
