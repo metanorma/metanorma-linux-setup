@@ -4,30 +4,25 @@ on:
   push:
 
 jobs:
-
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - uses: actions/setup-ruby@v1
-      with:
-        ruby-version: '2.6'
     - name: Prerequisites
       run: |
         sudo apt-get update
         sudo apt-get install -y curl
-    - name: Run install script
+    - name: Run Metanorma Ubuntu install script
       env:
         JAVA_OPTS: java.awt.headless=true
       run: |
         sudo -H ./ubuntu.sh
-        ./install-gems.sh
+        which plantuml latexml xml2rfc idnits
+    - name: Install gems
+      run: |
+        sudo -H env USE_RVM=false ./install-gems.sh
+        which metanorma
+    - name: Run Puppeteer install script
+      run: |
         ./ubuntu-install-puppeteer.sh
-        plantuml -testdot
-        export NODE_PATH=$(npm root -g)
-        which latexml xml2rfc idnits
+        npm -g ls puppeteer
