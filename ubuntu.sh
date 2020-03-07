@@ -27,7 +27,7 @@ fi
 
 # Install NVM
 if [ ! -d "$HOME/.nvm" ]; then
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 fi
 
 # Load NVM
@@ -47,6 +47,9 @@ curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/ubu
 # Install latexml
 snap install latexml --edge
 
+# Install yq
+snap install yq
+
 # Install idnits & xml2rfc
 apt-get -y install python3-pip python3-setuptools python3-wheel
 # pip3 install --upgrade pip
@@ -57,4 +60,3 @@ export IDNITS_VER=$(curl -Ls $IDNITS_URL | grep -e 'tgz' | sed -e 's/.*\(idnits-
 curl -SL ${IDNITS_URL}${IDNITS_VER} | tar xzv
 export PATH=$(pwd)/${IDNITS_VER}:${PATH}
 
-curl -sSL https://github.com/mikefarah/yq/releases/download/2.4.0/yq_linux_amd64 -o /usr/bin/yq && chmod +x /usr/bin/yq
