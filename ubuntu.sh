@@ -18,8 +18,3 @@ export IDNITS_URL=https://tools.ietf.org/tools/idnits/
 export IDNITS_VER=$(curl -Ls $IDNITS_URL | grep -e 'tgz' | sed -e 's/.*\(idnits-.*\).tgz.*/\1/') ; echo ${IDNITS_VER}
 curl -SL ${IDNITS_URL}${IDNITS_VER} | tar xzv
 export PATH=$(pwd)/${IDNITS_VER}:${PATH}
-
-# Setup metanorma
-metanorma setup --agree-to-terms || {
-  echo "Command 'metanorma setup' finished with errors. Please execute it again before the first metanorma run"
-}
