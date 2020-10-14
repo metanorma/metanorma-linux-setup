@@ -22,9 +22,7 @@ if [ "$USE_RVM" = true ] ; then
   rvm use ${RUBY_VER} --install --binary --fuzzy
 fi
 
-# Ruby sassc gem depends on rake gem
-gem install rake
+apt-get install -y make gcc ruby-bundler ruby-dev libxml2-dev libxslt-dev
+
 gem install bundler
-gem install nokogiri
-gem install metanorma
 gem install metanorma-cli
