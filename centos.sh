@@ -6,6 +6,8 @@ yum install -y curl git make ruby-devel libxml2-devel libxslt-devel epel-release
 curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/centos.sh" | bash
 
 # Install latexml
+yum install -y perl-core
+yum groupinstall -y 'Development Tools'
 command -v cpanm >/dev/null 2>&1 || {
   curl -L http://cpanmin.us | perl - App::cpanminus
 }
@@ -18,7 +20,7 @@ fi
 # Install idnits & xml2rfc
 
 command -v pip >/dev/null 2>&1 || {
-  yum install -y python-pip
+  yum -y install --enablerepo="epel" python-pip
 }
 
 pip install --upgrade pip

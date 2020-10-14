@@ -63,6 +63,7 @@ jobs:
     - name: Prerequisites
       run: |
         yum install -y curl
+        yum --enablerepo=extras install -y epel-release
     - name: Run Metanorma Centos install script
       env:
         JAVA_OPTS: java.awt.headless=true
