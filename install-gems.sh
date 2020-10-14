@@ -24,5 +24,6 @@ fi
 
 apt-get install -y make gcc ruby-bundler ruby-dev libxml2-dev libxslt-dev
 
+gem install rake
 gem install bundler
 gem install metanorma-cli
