@@ -46,7 +46,7 @@ jobs:
     - name: Prerequisites
       run: |
         apt-get update
-        apt-get install -y curl snapd
+        apt-get install -y curl
     - name: Run Metanorma Ubuntu install script
       env:
         JAVA_OPTS: java.awt.headless=true
@@ -62,8 +62,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Prerequisites
       run: |
-        apt-get update
-        apt-get install -y curl
+        yum install -y curl
     - name: Run Metanorma Centos install script
       env:
         JAVA_OPTS: java.awt.headless=true

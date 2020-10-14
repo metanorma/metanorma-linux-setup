@@ -4,7 +4,7 @@ RUBY_VER="${RUBY_VER:-2.6.5}"
 USE_RVM="${USE_RVM:-true}"
 
 if [ "$USE_RVM" = true ] ; then
-  if [ -f "~/.rvm/scripts/rvm" ]; then
+  if [ -f "$HOME/.rvm/scripts/rvm" ]; then
     echo "[rvm] Already installed."
   else
     echo "[rvm] Installing RVM..."
@@ -15,11 +15,12 @@ if [ "$USE_RVM" = true ] ; then
   fi
   
   # This is if RVM got installed somewhere else
-  if [ -f "~/.rvm/scripts/rvm" ]; then
-    source ~/.rvm/scripts/rvm
+  if [ -f "$HOME/.rvm/scripts/rvm" ]; then
+    # shellcheck source=/dev/null
+    source "$HOME/.rvm/scripts/rvm"
   fi
   
-  rvm use ${RUBY_VER} --install --binary --fuzzy
+  rvm use "${RUBY_VER}" --install --binary --fuzzy
 fi
 
 apt-get install -y make gcc ruby-bundler ruby-dev libxml2-dev libxslt-dev

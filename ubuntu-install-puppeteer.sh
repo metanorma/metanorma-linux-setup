@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if npm list -g --depth 0 | \grep [p]uppeteer > /dev/null 2>&1; then
+if npm list -g --depth 0 | grep "[p]uppeteer" > /dev/null 2>&1; then
   echo '[node: puppeteer] Puppeteer already installed.'
   exit 0;
 fi
