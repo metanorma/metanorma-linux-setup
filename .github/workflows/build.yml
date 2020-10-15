@@ -50,6 +50,7 @@ jobs:
     - name: Run Metanorma Ubuntu install script
       env:
         JAVA_OPTS: java.awt.headless=true
+        DEBIAN_FRONTEND: noninteractive
       run: |
         ./ubuntu.sh
         which metanorma plantuml latexml xml2rfc idnits
