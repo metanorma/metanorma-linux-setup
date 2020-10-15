@@ -9,14 +9,14 @@ then
   snap install yq
   snap install metanorma --devmode --beta
 else
-  apt-get install -y make gcc libxml2-dev libxslt-dev
+  apt-get install -y make gcc libxml-libxslt-perl libxml2-dev libxslt-dev libgdbm-dev
 
   # Install latexml
   command -v latexml >/dev/null 2>&1 || {
     command -v cpanm >/dev/null 2>&1 || {
       curl -L http://cpanmin.us | perl - App::cpanminus
     }
-    cpanm --notest git://github.com/brucemiller/LaTeXML.git@9a0e7dc5
+    cpanm --notest XML::LibXSLT@1.96 git://github.com/brucemiller/LaTeXML.git@9a0e7dc5 || true
   }
 
   # install yq

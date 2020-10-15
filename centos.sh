@@ -11,17 +11,14 @@ yum groupinstall -y 'Development Tools'
 command -v cpanm >/dev/null 2>&1 || {
   curl -L http://cpanmin.us | perl - App::cpanminus
 }
-if [ -z "$METANORMA_DEBUG" ]; then
-  cpanm LaTeXML@0.8.3
-else
-  cpanm --notest LaTeXML@0.8.3
-fi
+
+cpanm --notest LaTeXML@0.8.3
 
 # Install idnits & xml2rfc
 
-command -v pip >/dev/null 2>&1 || {
-  yum -y install --enablerepo="epel" python-pip
+command -v python3 >/dev/null 2>&1 || {
+  yum -y install --enablerepo="epel" python36
 }
 
-pip install --upgrade pip
-pip install idnits xml2rfc --ignore-installed six chardet
+python3 -m pip install --upgrade pip
+python3 -m pip install idnits xml2rfc --ignore-installed six chardet
