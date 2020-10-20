@@ -4,7 +4,17 @@ on:
   push:
 
 jobs:
-  test:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Shellcheck lint
+        run: |
+          sudo apt-get install shellcheck
+          shellcheck *.sh
+
+  ubuntu-snapd-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -18,11 +28,46 @@ jobs:
       run: |
         sudo -H ./ubuntu.sh
         which plantuml latexml xml2rfc idnits
-    - name: Install gems
-      run: |
-        sudo -H env USE_RVM=false ./install-gems.sh
-        which metanorma
     - name: Run Puppeteer install script
       run: |
         sudo -H ./ubuntu-install-puppeteer.sh
         npm -g ls puppeteer
+
+  ubuntu-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Prerequisites
+      run: |
+        apt-get update
+        apt-get install -y curl
+    - name: Run Metanorma Ubuntu install script
+      env:
+        JAVA_OPTS: java.awt.headless=true
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        ./ubuntu.sh
+        which plantuml latexml xml2rfc idnits
+    - name: Install gems
+      run: |
+        env USE_RVM=false ./install-gems.sh
+        which metanorma
+
+  centos-test:
+    runs-on: ubuntu-latest
+    container:
+      image: centos:latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Prerequisites
+      run: |
+        yum install -y curl which
+        yum --enablerepo=extras install -y epel-release
+    - name: Run Metanorma Centos install script
+      env:
+        JAVA_OPTS: java.awt.headless=true
+      run: |
+        ./centos.sh
+        which plantuml latexml xml2rfc idnits
