@@ -5,9 +5,9 @@ apt-get install -y curl git
 
 if command -v snap &> /dev/null
 then
-  snap install latexml --edge
   snap install yq
-  snap install metanorma --devmode --beta
+  snap install latexml --edge
+  snap install metanorma --candidate
 else
   apt-get install -y make gcc libxml-libxslt-perl libxml2-dev libxslt-dev libgdbm-dev
 
