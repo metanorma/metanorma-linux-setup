@@ -16,7 +16,7 @@ else
     command -v cpanm >/dev/null 2>&1 || {
       curl -L http://cpanmin.us | perl - App::cpanminus
     }
-    cpanm --notest XML::LibXSLT@1.96 git://github.com/brucemiller/LaTeXML.git@9a0e7dc5 || true
+    cpanm --notest LaTeXML@0.8.6 || true
   }
 
   # install yq
