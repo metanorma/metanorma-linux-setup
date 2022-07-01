@@ -27,7 +27,7 @@ jobs:
         JAVA_OPTS: java.awt.headless=true
       run: |
         sudo -H ./ubuntu.sh
-        which plantuml latexml xml2rfc idnits
+        which plantuml latexml xml2rfc
     - name: Run Puppeteer install script
       run: |
         sudo -H ./ubuntu-install-puppeteer.sh
@@ -49,7 +49,7 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         ./ubuntu.sh
-        which plantuml latexml xml2rfc idnits
+        which plantuml latexml xml2rfc
     - name: Install gems
       run: |
         env USE_RVM=false ./install-gems.sh
@@ -70,4 +70,4 @@ jobs:
         JAVA_OPTS: java.awt.headless=true
       run: |
         ./centos.sh
-        which plantuml latexml xml2rfc idnits
+        which plantuml latexml xml2rfc
