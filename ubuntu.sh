@@ -36,10 +36,3 @@ command -v xml2rfc >/dev/null 2>&1 || {
   apt-get -y install python3-pip python3-setuptools python3-wheel
   pip3 install idnits xml2rfc --ignore-installed six chardet
 }
-
-# Install idnits
-IDNITS_URL=https://tools.ietf.org/tools/idnits/
-IDNITS_VER=$(curl -Ls $IDNITS_URL | grep -e 'tgz' | sed -e 's/.*\(idnits-.*\).tgz.*/\1/') ; echo "${IDNITS_VER}"
-curl -SL "${IDNITS_URL}${IDNITS_VER}" | tar xzv
-PATH=$(pwd)/${IDNITS_VER}:${PATH}
-export PATH
