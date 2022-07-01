@@ -63,6 +63,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Prerequisites
       run: |
+        dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos -y
+        dnf distro-sync -y
         yum install -y curl which
         yum --enablerepo=extras install -y epel-release
     - name: Run Metanorma Centos install script
