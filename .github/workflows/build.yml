@@ -58,7 +58,7 @@ jobs:
   centos-test:
     runs-on: ubuntu-latest
     container:
-      image: centos:latest
+      image: centos:8
     steps:
     - uses: actions/checkout@v1
     - name: Prerequisites
