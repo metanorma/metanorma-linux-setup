@@ -3,8 +3,6 @@
 # Set up prerequisites
 yum install -y curl git make ruby-devel libxml2-devel libxslt-devel epel-release
 
-curl -L "https://raw.githubusercontent.com/metanorma/plantuml-install/master/centos.sh" | bash
-
 # Install latexml
 yum install -y perl-core
 yum groupinstall -y 'Development Tools'
