@@ -3,6 +3,9 @@
 # Set up prerequisites
 yum install -y curl git make ruby-devel libxml2-devel libxslt-devel epel-release
 
+# Install Java and graphviz
+yum install -y java-1.8.0-openjdk graphviz
+
 # Install latexml
 yum install -y perl-core
 yum groupinstall -y 'Development Tools'
