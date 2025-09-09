@@ -28,6 +28,10 @@ else
   echo "Run 'curl -L \"https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/install-gems.sh\" | bash'"
 fi
 
+# Install Java
+apt-get --no-install-recommends install -y openjdk-11-jre
+apt-get install -y graphviz
+
 # Install xml2rfc
 command -v xml2rfc >/dev/null 2>&1 || {
   apt-get -y install python3-pip python3-setuptools python3-wheel
