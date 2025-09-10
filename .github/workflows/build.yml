@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Shellcheck lint
         run: |
-          sudo apt-get install shellcheck
+          sudo apt install shellcheck
           shellcheck *.sh
 
   ubuntu-snapd-test:
@@ -20,8 +20,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Prerequisites
       run: |
-        sudo apt-get update
-        sudo apt-get install -y curl
+        sudo apt update
+        sudo apt install -y curl
     - name: Run Metanorma Ubuntu install script
       env:
         JAVA_OPTS: java.awt.headless=true
@@ -37,8 +37,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Prerequisites
       run: |
-        apt-get update
-        apt-get install -y curl
+        apt update
+        apt install -y curl
     - name: Run Metanorma Ubuntu install script
       env:
         JAVA_OPTS: java.awt.headless=true

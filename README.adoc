@@ -23,7 +23,7 @@ Older versions may work but are not tested.
 [source,sh]
 ----
 # Prerequisites: "curl"
-# apt-get update && apt-get install -y curl
+# apt update && apt install -y curl
 sudo bash -c "curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/ubuntu.sh | bash"
 curl -L https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/install-gems.sh | bash
 ----

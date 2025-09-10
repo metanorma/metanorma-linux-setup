@@ -23,7 +23,7 @@ if [ "$USE_RVM" = true ] ; then
   rvm use "${RUBY_VER}" --install --binary --fuzzy
 fi
 
-apt-get install -y make gcc ruby-bundler ruby-dev libxml2-dev libxslt-dev
+apt install -y make gcc ruby-bundler ruby-dev libxml2-dev libxslt-dev
 
 gem install rake
 gem install bundler
