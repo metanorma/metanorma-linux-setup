@@ -52,7 +52,6 @@ NOTE: The first command has to be run via `sudo`.
 * https://java.com[Java] which is a dependency for some of the Metanorma gems
 //* https://github.com/creationix/nvm[nvm] for managing http://nodejs.org[Node.js] versions (includes latest Node.js and https://www.npmjs.org[NPM], for running apps and installing JavaScript packages)
 * http://nodejs.org[Node.js] (includes latest Node.js and https://www.npmjs.org[NPM], for running apps and installing JavaScript packages)
-* https://github.com/GoogleChrome/puppeteer[puppeteer] for running Headless Chrome via Node.js (used to generate PDFs from HTML)
 
 
 == Debugging
