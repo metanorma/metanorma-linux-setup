@@ -6,17 +6,7 @@ yum install -y curl git make ruby-devel libxml2-devel libxslt-devel epel-release
 # Install Java and graphviz
 yum install -y java-1.8.0-openjdk graphviz
 
-# Install latexml
-yum install -y perl-core
-yum groupinstall -y 'Development Tools'
-command -v cpanm >/dev/null 2>&1 || {
-  curl -L http://cpanmin.us | perl - App::cpanminus
-}
-
-cpanm --notest LaTeXML@0.8.3
-
 # Install idnits & xml2rfc
-
 command -v python3 >/dev/null 2>&1 || {
   yum -y install --enablerepo="epel" python36
 }

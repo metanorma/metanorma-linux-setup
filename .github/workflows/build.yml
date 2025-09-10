@@ -27,7 +27,7 @@ jobs:
         JAVA_OPTS: java.awt.headless=true
       run: |
         sudo -H ./ubuntu.sh
-        which latexml xml2rfc
+        which xml2rfc
 
   ubuntu-test:
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         ./ubuntu.sh
-        which latexml xml2rfc
+        which xml2rfc
     - name: Install gems
       run: |
         env USE_RVM=false ./install-gems.sh
@@ -71,4 +71,4 @@ jobs:
         JAVA_OPTS: java.awt.headless=true
       run: |
         ./centos.sh
-        which latexml xml2rfc
+        which xml2rfc
