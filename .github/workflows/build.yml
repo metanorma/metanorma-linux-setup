@@ -28,10 +28,6 @@ jobs:
       run: |
         sudo -H ./ubuntu.sh
         which latexml xml2rfc
-    - name: Run Puppeteer install script
-      run: |
-        sudo -H ./ubuntu-install-puppeteer.sh
-        npm -g ls puppeteer
 
   ubuntu-test:
     runs-on: ubuntu-latest
