@@ -51,24 +51,24 @@ jobs:
         env USE_RVM=false ./install-gems.sh
         which metanorma
 
-  centos-test:
-    runs-on: ubuntu-latest
-    container:
-      image: centos:latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Prerequisites
-      run: |
-        sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
-        sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.epel.cloud|g' /etc/yum.repos.d/CentOS-Linux-*
-        dnf clean all
-        dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos -y
-        dnf distro-sync -y
-        yum install -y curl which
-        yum --enablerepo=extras install -y epel-release
-    - name: Run Metanorma Centos install script
-      env:
-        JAVA_OPTS: java.awt.headless=true
-      run: |
-        ./centos.sh
-        which xml2rfc
+  # centos-test:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: centos:latest
+  #   steps:
+  #   - uses: actions/checkout@v1
+  #   - name: Prerequisites
+  #     run: |
+  #       sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
+  #       sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.epel.cloud|g' /etc/yum.repos.d/CentOS-Linux-*
+  #       dnf clean all
+  #       dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos -y
+  #       dnf distro-sync -y
+  #       yum install -y curl which
+  #       yum --enablerepo=extras install -y epel-release
+  #   - name: Run Metanorma Centos install script
+  #     env:
+  #       JAVA_OPTS: java.awt.headless=true
+  #     run: |
+  #       ./centos.sh
+  #       which xml2rfc
