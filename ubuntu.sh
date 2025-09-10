@@ -19,6 +19,9 @@ else
   echo "Run 'curl -L \"https://raw.githubusercontent.com/metanorma/metanorma-linux-setup/master/install-gems.sh\" | bash'"
 fi
 
+# Install build-essential
+apt install -y build-essential
+
 # Install Java
 apt --no-install-recommends install -y openjdk-11-jre
 apt install -y graphviz
