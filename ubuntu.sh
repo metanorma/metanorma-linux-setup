@@ -25,6 +25,5 @@ apt install -y graphviz
 
 # Install xml2rfc
 command -v xml2rfc >/dev/null 2>&1 || {
-  apt install -y python3-pip python3-setuptools python3-wheel
-  pip3 install idnits xml2rfc --ignore-installed six chardet
+  pip install xml2rfc --ignore-installed six chardet
 }

@@ -22,6 +22,12 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y curl
+    - uses: actions/setup-python@v6
+      with:
+        python-version: '3.13'
+        pip-version: '25.0.1'
+    - name: Display Pip version
+      run: pip --version
     - name: Run Metanorma Ubuntu install script
       env:
         JAVA_OPTS: java.awt.headless=true
@@ -39,6 +45,12 @@ jobs:
       run: |
         apt update
         apt install -y curl
+    - uses: actions/setup-python@v6
+      with:
+        python-version: '3.13'
+        pip-version: '25.0.1'
+    - name: Display Pip version
+      run: pip --version
     - name: Run Metanorma Ubuntu install script
       env:
         JAVA_OPTS: java.awt.headless=true
