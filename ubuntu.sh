@@ -1,23 +1,14 @@
 #!/bin/bash -e
 
 # Set up prerequisites
-apt-get install -y curl git
+apt install -y curl git
 
 if command -v snap &> /dev/null
 then
   snap install yq
-  snap install latexml --edge
   snap install metanorma --candidate
 else
-  apt-get install -y make gcc libxml-libxslt-perl libxml2-dev libxslt-dev libgdbm-dev
-
-  # Install latexml
-  command -v latexml >/dev/null 2>&1 || {
-    command -v cpanm >/dev/null 2>&1 || {
-      curl -L http://cpanmin.us | perl - App::cpanminus
-    }
-    cpanm --notest LaTeXML@0.8.6 || true
-  }
+  apt install -y make gcc libxml-libxslt-perl libxml2-dev libxslt-dev libgdbm-dev
 
   # install yq
   command -v yq >/dev/null 2>&1 || {
@@ -29,11 +20,11 @@ else
 fi
 
 # Install Java
-apt-get --no-install-recommends install -y openjdk-11-jre
-apt-get install -y graphviz
+apt --no-install-recommends install -y openjdk-11-jre
+apt install -y graphviz
 
 # Install xml2rfc
 command -v xml2rfc >/dev/null 2>&1 || {
-  apt-get -y install python3-pip python3-setuptools python3-wheel
+  apt install -y python3-pip python3-setuptools python3-wheel
   pip3 install idnits xml2rfc --ignore-installed six chardet
 }
